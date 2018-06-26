@@ -1,0 +1,102 @@
+% !TEX root = ../CSS-OS.tex
+
+\chapter{模拟结果的检验}
+
+{\heiti 检验的工作与唐怀金合作。}
+
+
+\section{检验模拟结果的基本思路及各项判断条件的具体定义}
+
+
+\subsection{卫星受到光照（阳照区）的判断}
+\RT{此处内容由唐怀金提供}
+
+模型一：地球中心$O$，与卫星$E$和太阳$S$。$R$是地球半径.太阳角半径16角分，地平线上蒙气差为35.4角分。
+卫星受到光照的判断条件是 
+\begin{equation}
+\theta_0 \le \theta_1+ \theta_2+ \theta_3
+\end{equation}
+其中
+\begin{eqnarray}
+\theta_0 &=& \arccos \frac{\bm{OS} \cdot \bm{OE}}{|\bm{OS}| \cdot |\bm{OE}|},\\
+\theta_1 &=& \arccos{\frac{R}{|\bm{OS}|}},\\
+\theta_2 &=& \arccos{\frac{R}{|\bm{OE}|}},\\
+\theta_3 &=& (16+35.4\times 2)/60.
+\end{eqnarray}
+ 
+模型二：卫星未受到光照的判断条件是地球中心到太阳与卫星之间的连线的距离$h$满足如下关系
+\begin{eqnarray}
+h < R \cos\left( \frac{16+35.4\times2}{60} \right),
+\end{eqnarray}
+且$\theta_0$为钝角，此模型为最早使用的模型。 其中 
+\begin{eqnarray}
+h=\frac{\bm{OS} \cdot \bm{OE}}{|\bm{SE}|}
+\end{eqnarray}
+
+\subsection{杂散光模型(唐怀金提供)}
+原点位于地球中心$O$，目标点P的坐标为$(P_x,P_y,P_z)$，卫星的位置STL为$(STL_x,STL_y,STL_z)$，
+太阳位置SUN为$(SUN_x,SUN_y,SUN_z)$，地球半径为$R$。天顶距$ANGLE_z$,暗边角阈值$ANGLE_{dark}$,
+亮边角阈值$ANGLE_{light}$.
+
+遮挡角：
+\begin{eqnarray}
+ANGLE_1 = \arcsin\left(\frac{R}{L_{OP}}\right),
+\end{eqnarray}
+简便起见，这里不严格区分弧度与角度的差别。
+
+卫星在地球上的视线切线是否与晨昏线相交分为三种情况：
+\begin{itemize}
+
+\item [一：]与晨昏线不相交且卫星位于阴影区域，计算观测目标点的天顶距，判断是否为暗边角的判断条件：
+\begin{eqnarray}
+ANGLE_z \le 180-ANGLE_1-ANGLE_{dark}
+\end{eqnarray}
+
+\item [二：]与晨昏线不相交且卫星位于阳照区，计算观测目标点的天顶距，判断是否为亮边角的判断条件：
+\begin{eqnarray}
+ANGLE_z \le 180-ANGLE_1-ANGLE_{light}
+\end{eqnarray}
+
+\item [三：]与晨昏线相交。\\
+第一步：以亮边角的天顶距做初始判断，满足条件则通过：
+\begin{eqnarray}
+ANGLE_z \le 180-ANGLE_1-ANGLE_{light};
+\end{eqnarray}
+
+第二步：不满足第一步条件，但是满足以下两个条件：
+\begin{eqnarray}
+ANGLE_z &\ge& 180-ANGLE_1-ANGLE_{light}\\
+ANGLE_z &\le& 180-ANGLE_1-ANGLE_{dark}
+\end{eqnarray}
+则计算卫星、地心和目标点共面的切点$P_{Q}$（可由平面几何推导）,切点必须位于阴影区。
+若能计算出晨昏线与视线切线环的焦点，则考虑阳照区的影响。
+
+\end{itemize}
+
+\section{目前的检验结果}
+\begin{itemize}
+\item 阳照区\\
+目前对各项限制条件的检验结果中“阳照区”的判断有$4.5\%$的不符合率，是目前所有限制条件中
+最严重的情况。目前已经将这些不符合的模拟结果调取出来进行细致的检查。\RT{目前猜测，出现
+这么高的不符合率应该是由张鑫的程序与唐怀金的检验程序之间的一些假设之间的差异所导致的：
+张鑫的程序对阳照区的判断基于“照射到地球的太阳光为平行光”这样一个假设，相比较之下，唐怀金
+的检验程序在这一块的处理更加接近实际情况。}
+
+\item SAA区域\\
+
+\item 太阳能帆板\\
+
+
+\item 地球杂散光、地气光\\
+
+
+%\item 暗边、亮边夹角\\
+
+
+\item 太阳夹角\\
+
+
+\item 月球夹角\\
+
+\end{itemize}
+\section{检验中出现的不符合情况及原因排查}

@@ -1,0 +1,14 @@
+#refs
+*.xdv
+*.aux
+*.log
+*.dvi
+*.fls
+*.out
+*.toc
+*.fdb_latexmk
+*.lb
+*.synctex.gz
+*.bbl
+*.blg
+CSS-OS.pdf

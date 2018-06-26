@@ -1,0 +1,51 @@
+\documentclass[a4paper,11pt]{ctexrep}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{setspace}
+\usepackage{bookmark}
+\usepackage{textcomp} %提供\textdegree
+\usepackage[text={6.5in,9in},centering]{geometry}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{ulem}
+\usepackage{bm}
+\usepackage{booktabs} % referred from <Latex_Cookbook>
+
+\ctexset{today=big}
+
+
+% 一些用于给字体增加颜色的命令
+\newcommand{\RT}[1]{\textcolor{red}{#1}}
+\newcommand{\BT}[1]{\textcolor{blue}{#1}}
+\newcommand{\GT}[1]{\textcolor{green}{#1}}
+\newcommand{\MT}[1]{\textcolor{magenta}{#1}}
+
+% 在MacOS下可以使用\heiti,\kaishu来设置字体，使用方法如下
+% {\heiti 中文内容}
+
+\begin{document}
+
+\title{\bf CSS-OS——巡天规划模拟}
+\author{\heiti 许优华，张鑫}
+\maketitle
+
+\abstract{
+\kaishu 本文档是关于CSS-OS——巡天规划模拟程序的相关说明。本文档的主要目的是记录巡天规划模拟中所考虑的各项
+影响观测的因素，模拟程序的设计，以及各个模块功能的介绍和测试。}
+
+\tableofcontents
+
+\input{chapters/survey}
+\input{chapters/constraints}
+\input{chapters/strategy}
+\input{chapters/code}
+\input{chapters/result}
+\input{chapters/check}
+\input{chapters/check_log}
+\input{chapters/internal}
+\input{chapters/appendix}
+
+
+
+\end{document}
